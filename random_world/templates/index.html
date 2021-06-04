@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Genereador de palabras aleatorias</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="container text-center">
+        
+        <h1 class="title mx-5 my-5 px-5 py-2">Genera una palabra aleatorio</h1>
+        <h2 class="count mx-5 px-5 py-2">Conteo:<span>{{request.session.conteo}}</span></h2>
+        <h3 class="word mx-5 my-5 px-5 py-2">{{random}}</h3>
+        <div class="random mx-5 my-5 py-2">
+            <a href="/random_word" class="btn btn-success btn-lg">Random</a>
+        </div>
+        <div class="reset mx-5 my-5 py-2" action="/app/reset" method="POST">
+            {% csrf_token %}
+        <a href="random_word/reset" class="btn btn-success btn-lg">reset</a>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
